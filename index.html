@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table, line, td {
+      border: 1px solid black;
+      width: 200px;
+      margin-top: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var x = 0;
+        function add() {
+            let line = document.createElement('tr');
+            let x1 = x.toString();
+            line.innerHTML = "<td>"+x1+" 1</td><td>"+x1+" 2</td><td>"+x1+" 3</td>";
+            table_3.append(line);
+            x++;
+        }
+
+        function create(){
+            if (x == 0) {
+                document.getElementById('table_3').style.display='table';
+                document.querySelector('#add_butt').disabled = false;
+                document.querySelector('#del_butt').disabled = false;
+                x++;
+            }
+            else {
+                window.alert("Ошибка. Вы не можете работать с больше чем одной таблицей");
+            }
+        }
+
+        function del() {
+            var n = document.getElementById("textInput").value;
+            let d = document.getElementsByTagName('tr')[n];
+            d.remove();
+        }
+
+    </script>
+</head>
+<body>
+    <button id="create_button" type="button" onclick="create()">Создать таблицу</button>
+    <button id="add_butt" type="button" onclick="add()" disabled>Добавить строку</button>
+    <button id="del_butt" type="button" onclick="del()" disabled>Удалить строку №</button>
+    <input type = "text" name = "textInput" id = "textInput">
+    <table id="table_3" style="display:none">
+      <tr>
+        <td>0 1</td>
+        <td>0 2</td>
+        <td>0 3</td>
+      </tr>
+    </table>		
+</body>
+</html>
